@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekhya Sri's Powerpuff World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blossom-pink: #ff85a2;
+            --soft-rose: #fce4ec;
+            --deep-pink: #ff4081;
+            --glass: rgba(255, 255, 255, 0.25);
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff5f7 0%, #fce4ec 100%);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            color: #444;
+        }
+
+        /* High-Budget Floating Background Shapes */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: float 20s infinite alternate;
+        }
+
+        .orb-1 { width: 400px; height: 400px; background: #ffd1dc; top: -100px; left: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: #ffb6c1; bottom: -50px; right: -50px; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 100px); }
+        }
+
+        /* Navigation */
+        nav {
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-pink);
+            letter-spacing: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ff4081, #ff85a2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        /* Interactive Character Cards */
+        .character-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 40px;
+            border-radius: 24px;
+            width: 280px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 133, 162, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-20px);
+            background: white;
+            box-shadow: 0 20px 40px rgba(255, 64, 129, 0.2);
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .card.blossom { border-bottom: 5px solid #ff4081; }
+        .card.bubbles { border-bottom: 5px solid #4fc3f7; }
+        .card.buttercup { border-bottom: 5px solid #81c784; }
+
+        /* Floating Hearts Component */
+        .heart {
+            position: fixed;
+            font-size: 20px;
+            color: var(--blossom-pink);
+            pointer-events: none;
+            z-index: 999;
+            animation: rise 3s ease-out forwards;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        .footer {
+            margin-top: 100px;
+            padding: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .btn-luxe {
+            padding: 15px 35px;
+            border: none;
+            background: var(--deep-pink);
+            color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 64, 129, 0.3);
+        }
+
+        .btn-luxe:hover {
+            transform: scale(1.05);
+            background: #e91e63;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <nav>
+        <div class="logo">P.P.G / LUXE</div>
+        <button class="btn-luxe" onclick="addSparkles()">FOR LEKHYA SRI</button>
+    </nav>
+
+    <section class="hero">
+        <p>Sugar, Spice & Everything Pink</p>
+        <h1>The Powerpuff <br> <i>Experience</i></h1>
+        
+        <div class="character-container">
+            <div class="card blossom" onclick="showLove('Blossom')">
+                <h3>Blossom</h3>
+                <p>The visionary leader. Sophisticated, smart, and graceful.</p>
+            </div>
+            <div class="card bubbles" onclick="showLove('Bubbles')">
+                <h3>Bubbles</h3>
+                <p>The joy and the laughter. Sweetness in its purest form.</p>
+            </div>
+            <div class="card buttercup" onclick="showLove('Buttercup')">
+                <h3>Buttercup</h3>
+                <p>The toughest fighter. Bold, brave, and effortlessly cool.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        Designed Exclusively for Lekhya Sri • 2026
+    </footer>
+
+    <script>
+        function showLove(name) {
+            alert("Lekhya Sri, you have the " + name + " energy today! ✨");
+            addSparkles();
+        }
+
+        function addSparkles() {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '🌸';
+                    heart.classList.add('heart');
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '100vh';
+                    heart.style.opacity = Math.random();
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        // Add a subtle parallax movement
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('.orb-1').style.transform = `translate(${moveX}px, ${moveY}px)`;
+            document.querySelector('.orb-2').style.transform = `translate(${-moveX}px, ${-moveY}px)`;
+        });
+    </script>
+</body>
+</html>
